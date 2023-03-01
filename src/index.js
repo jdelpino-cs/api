@@ -1,10 +1,12 @@
 // index.js
-/* This is the main entry point of our server-side web application
-for the Notedly application.
+/* This is the main entry point for my server-side web applicatio —Notedly—
+based in the guided project from the book "JavaScript Everywhere", by
+Adam D. Scott.
 
 We use the minimalist node.js framework Express.js as a foundation
 for our backend and GraphQL with apollo-server to turn it into a
 proper web API. */
+
 const express = require('express'); // This is tle old way to imoort modules
 const app = express(); // We create an instance of the express app
 const port = process.env.PORT || 4001;
