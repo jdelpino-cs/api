@@ -23,7 +23,8 @@ const db = require('./db');
 // Run the server on a port specified in our .env file or port 4001
 const port = process.env.PORT || 4001;
 // Store the database host in the DB_HOST variable
-const DB_HOST = process.env.DB_HOST;
+const DB_HOST = process.env.DB_HOST; // Started working when I moved
+//the .env file to the API root folder
 
 // Basic note data
 let notes = [
@@ -71,6 +72,9 @@ const resolvers = {
   }
 };
 
+// Connect to the database
+db.connect(DB_HOST);
+
 // Apollo Server setup
 const server = new ApolloServer({ typeDefs, resolvers });
 
@@ -88,6 +92,3 @@ app.listen({ port }, () =>
 http://localhost:${port}${server.graphqlPath}`
   )
 );
-
-// Connect to the database
-db.connect(DB_HOST);
