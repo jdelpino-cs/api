@@ -12,9 +12,10 @@ This is my first. backend project ever!*/
 // Import our backend backbone: Express.js and ApolloServer
 const express = require('express'); // This is tle old way to imoort modules
 const app = express(); // We create an instance of the express app
-/* We deconstruct the ApolloServer object. The gql function allows you
-to define the GraphQL schema and queries using a template literal syntax. */
-const { ApolloServer, gql } = require('apollo-server-express');
+// We deconstruct the ApolloServer object from the apollo-server-express
+const { ApolloServer } = require('apollo-server-express');
+// We import the GraphQL schema and queries from the schema.js file
+const typeDefs = require('. /schema');
 
 // Load environment variables from our .env file
 require('dotenv').config();
@@ -33,23 +34,6 @@ const DB_HOST = process.env.DB_HOST; // Started working when I moved
 // I removed the original note data array after I created an populated
 // manully the database with the data from the array using
 // GraphQL playground and Insomnia request playground.
-
-// Construct a schema, using GraphQL schema language
-const typeDefs = gql`
-  type Note {
-    id: ID!
-    content: String!
-    author: String!
-  }
-  type Query {
-    hello: String!
-    notes: [Note!]!
-    note(id: ID!): Note
-  }
-  type Mutation {
-    newNote(content: String!): Note!
-  }
-`;
 
 // Provide resolver functions for our schema fields
 const resolvers = {
