@@ -1,0 +1,54 @@
+mutation {
+  newNote (content: "This is a note")
+  {
+    content
+    id
+    author
+  }
+}
+
+mutation {
+  newNote (content: "This is another note")
+  {
+    content
+    id
+    author
+  }
+}
+
+mutation {
+  newNote (content: "Oh hey look, another note!")
+  {
+    content
+    id
+    author
+  }
+}
+
+mutation {
+  newNote (content: "Pupú note")
+  {
+    content
+    id
+    author
+  }
+}
+
+mutation {
+  newNote (content: "GraphQL is amazing. I don't want to use Rest APIs anymore.")
+  {
+    content
+    id
+    author
+  }
+}
+
+mutation {
+  newNote (content: "Reprehenderit voluptates beatae corporis praesentium accusamus asperiores rerum. Natus labore quam provident voluptatem sint velit praesentium architecto eos sint et debitis consequuntur facere praesentium. Itaque qui itaque voluptates expedita vero aut architecto id in dolor ut cum. Quis maiores accusantium et asperiores quibusdam. Dolor nisi temporibus nam aut sint corporis quis voluptate qui. Alias voluptatem dolores qui alias quae error.")
+  {
+    content
+    id
+    author
+  }
+}
+

@@ -63,3 +63,6 @@ typings/
 # VSCode settings
 .vscode/
 .code-workspace
+
+# Notedly dummy files
+/api/dymmies/*.*
