@@ -62,7 +62,9 @@ typings/
 
 # VSCode settings
 .vscode/
-.code-workspace
+.env.example
+.eslintrc
+.prettierrccode-workspace
 
 # Notedly dummy files
 /api/dymmies/*.*
