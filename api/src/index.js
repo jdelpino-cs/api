@@ -15,7 +15,10 @@ const app = express(); // We create an instance of the express app
 // We deconstruct the ApolloServer object from the apollo-server-express
 const { ApolloServer } = require('apollo-server-express');
 // We import the GraphQL schema and queries from the schema.js file
-const typeDefs = require('. /schema');
+const typeDefs = require('./schema');
+// We import the cors middleware to enable cross-origin requests
+// This is for something I am trying with the code from another book
+const cors = require('cors');
 
 // Load environment variables from our .env file
 require('dotenv').config();
@@ -38,7 +41,6 @@ const DB_HOST = process.env.DB_HOST; // Started working when I moved
 // Provide resolver functions for our schema fields
 const resolvers = {
   Query: {
-    hello: () => 'Hello My Web Express Server!!!!',
     notes: async () => {
       return await models.Note.find();
     },
@@ -62,9 +64,14 @@ db.connect(DB_HOST);
 // Apollo Server setup
 const server = new ApolloServer({ typeDefs, resolvers });
 
+// Enables cross-domain requests on the serve-side.
+// This is for something I am trying from a different book.
+app.use(cors({ origin: '*' }));
+
 /* We define the first API behavior and run the Express.js application
 on port 4000, to be able view it locally at http://localhost:4000 */
 app.get('/', (req, res) => res.send('Hello My Web Express Server!!!!'));
+app.get('/version', (req, res) => res.send('1.0.0'));
 
 // Apply the Apollo GraphQL middleware and set the path to api
 server.applyMiddleware({ app, path: '/api' });
